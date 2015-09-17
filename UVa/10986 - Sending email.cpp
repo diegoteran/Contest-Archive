@@ -32,13 +32,13 @@ void addEdge(int a, int b, int c){
 priority_queue<pii, vector<pii>, greater<pii> > q;
 void init(){
 	nextEdge = 1;
-	fill(start, start+MAXN, 0);
-	fill(v, v+MAXN, false);
+	fill(start, start+N, 0);
+	fill(v, v+N, false);
 }
 
 int dijkstra(int u){
 
-	while(!q.empty()) q.pop();
+	q = priority_queue< pii, vector<pii>, greater<pii> >();
 
 	q.push(mp(0, u));
 	
