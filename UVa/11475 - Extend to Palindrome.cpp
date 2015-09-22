@@ -4,8 +4,8 @@
 
 using namespace std;
 
-#define B 10069
-#define MOD 100069
+#define B 1000001857
+#define MOD 1000004933
 
 long long S, i, j, x, h[100005], rh[100005];
 char s[100005];
