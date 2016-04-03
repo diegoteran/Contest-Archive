@@ -79,16 +79,8 @@ int main(){
 		
 		for (int i = 0; i <= N; i++)
 			for (int j = i+1; j <= N+1; j++){
-				if (dist(i, j) <= R[i] + R[j]){
-					addEdge(i, j, 0);
-					addEdge(j, i, 0);
-				}
-				else {
-					addEdge(j, i, sqrt(dist(i, j)) - R[i] - R[j]);
-					//double x = dist(i, j);
-					//printf("Dist entre %d y %d : %lf\n", i, j, x);
-					addEdge(i, j, sqrt(dist(i, j)) - R[i] - R[j]);
-				}
+					addEdge(j, i, max(0.0, sqrt(dist(i, j)) - R[i] - R[j]));
+					addEdge(i, j, max(0.0, sqrt(dist(i, j)) - R[i] - R[j]));
 			}
 	
 		while (!q.empty()) q.pop();
