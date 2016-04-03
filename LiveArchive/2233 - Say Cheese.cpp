@@ -37,7 +37,7 @@ void init(){
 	fill(distan, distan+MAXN, INF);
 }
 
-void addEdge(int a, int b, int c){
+void addEdge(int a, int b, double c){
 	graph[nextEdge].node = b;
 	graph[nextEdge].next = start[a];
 	graph[nextEdge].weight = c;
@@ -75,7 +75,6 @@ int main(){
 			scanf("%lf %lf %lf %lf", &X[i], &Y[i], &Z[i], &R[i]);
 		scanf("%lf %lf %lf", &X[N], &Y[N], &Z[N]); R[N] = 0;
 		scanf("%lf %lf %lf", &X[N+1], &Y[N+1], &Z[N+1]); R[N+1] = 0;
-
 		
 		for (int i = 0; i <= N; i++)
 			for (int j = i+1; j <= N+1; j++){
