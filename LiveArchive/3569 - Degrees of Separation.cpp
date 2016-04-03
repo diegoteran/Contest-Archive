@@ -35,7 +35,8 @@ int main(){
 			adj[m[a]][m[b]] = adj[m[b]][m[a]] = 1;			
 			
 		}
-
+		
+		//Floyd - Warshall
 		for (int k = 1; k <= P; k++)
 			for (int i = 1; i <= P; i++)
 				for (int j = 1; j <= P; j++)
