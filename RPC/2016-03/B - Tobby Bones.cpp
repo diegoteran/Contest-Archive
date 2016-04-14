@@ -46,16 +46,19 @@ int query (int x, int qlo, int qhi, int lo, int hi, int node){
 
 int main(){
 
-	scanf("%d %d", &N, &M);
-	
-	while (M--){
-		scanf("%d", &q);
-		if (q) {
-			scanf("%d %d %d", &a, &b, &c);
-			printf("%d\n", query(c, a, b, 0, N-1, 0));
-		} else {
-			scanf("%d %d", &a, &b);
-			update(a, b, 0, N-1, 0);
+	while( scanf("%d %d", &N, &M) != EOF){	
+		fill(ar, ar+MAXN, 0);
+		for(int i = 0; i < MAXN*4; i++)
+			t[i].clear();
+		while (M--){
+			scanf("%d", &q);
+			if (q) {
+				scanf("%d %d %d", &a, &b, &c);
+				printf("%d\n", query(c, a, b, 0, N-1, 0));
+			} else {
+				scanf("%d %d", &a, &b);
+				update(a, b, 0, N-1, 0);
+			}
 		}
 	}
 }
