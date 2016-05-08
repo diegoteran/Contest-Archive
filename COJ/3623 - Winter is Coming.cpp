@@ -10,6 +10,8 @@ typedef long long ll;
 
 int p[MAXN];
 ll c[1010];
+ll U, M, C;
+vector<ll> a, b;
 
 ll inv(ll x){
 	ll b = MOD-2;
@@ -30,8 +32,8 @@ const ll root_1 = 15837692;
 const ll root_pw = 1<<22;
  
 void fft (vector<ll> & a, bool invert) {
-	ll n = (ll) a.size();
- 
+	ll n = (ll)a.size();
+
 	for (ll i=1, j=0; i<n; ++i) {
 		ll bit = n >> 1;
 		for (; j>=bit; bit>>=1)
@@ -67,20 +69,19 @@ void multiply (const vector<ll> & a, const vector<ll> & b, vector<ll> & res) {
 	size_t n = 1;
 	while (n < max (a.size(), b.size()))  n <<= 1;
 	n <<= 1;
-	fa.resize (n),  fb.resize (n);
- 
+	fa.resize (n);
+	fb.resize (n);
+	res.resize(n);
+
 	fft (fa, false),  fft (fb, false);
 	for (size_t i=0; i<n; ++i)
 		fa[i] = (fa[i] * fb[i]) % MOD;
 	fft (fa, true);
  
-	res.resize (n);
+	//res.resize (n);
 	for (size_t i=0; i<n; ++i)
 		res[i] = ll (fa[i]) % MOD;
 }
-
-ll U, M, C;
-vector<ll> a, b;
 
 int main() {
 	for (int i = 2; i < MAXN; i++)
@@ -90,9 +91,8 @@ int main() {
 				if(!p[j])
 					p[j] = i;
 		}
-
 	scanf("%lld %lld %lld", &U, &M, &C);
-	
+
 	for (ll i = 2; i <= U; i++)
 		if(p[i/p[i]] == i/p[i])
 				c[i%M]++;
